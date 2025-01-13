@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IMDLibrary</string>
+    <string name="publisher_label">Editora: %s</string>
+    <string name="year_label">Ano: %d</string>
 </resources>

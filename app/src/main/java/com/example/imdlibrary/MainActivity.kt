@@ -3,45 +3,29 @@ package com.example.imdlibrary
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.imdlibrary.ui.theme.IMDLibraryTheme
+import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
+import com.example.imdlibrary.data.database.BookDatabase
+import com.example.imdlibrary.data.repository.BookRepository
+import com.example.imdlibrary.ui.navigation.AppNavigation
+import com.example.imdlibrary.viewmodel.BookViewModel
+import com.example.imdlibrary.viewmodel.BookViewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            BookDatabase::class.java, "book_database"
+        ).fallbackToDestructiveMigration().build()
+
+        val repository = BookRepository(db.bookDao())
+        val viewModel = ViewModelProvider(this, BookViewModelFactory(repository))
+            .get(BookViewModel::class.java)
+
         setContent {
-            IMDLibraryTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            AppNavigation(viewModel)
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    IMDLibraryTheme {
-        Greeting("Android")
     }
 }
