@@ -13,7 +13,7 @@ class BookViewModel(private val repository: BookRepository) : ViewModel() {
     val books = _books.asStateFlow()
 
     init {
-        loadBooks()  // Carregar livros ao iniciar o ViewModel
+        loadBooks()
     }
 
     fun loadBooks() {

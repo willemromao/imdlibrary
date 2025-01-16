@@ -39,10 +39,10 @@ class UserViewModel(private val repository: UserRepository) : ViewModel() {
             val user = repository.getUserByUsername(username)
             if (user != null) {
                 val updatedUser = user.copy(password = newPassword)
-                repository.updateUser(updatedUser) // Atualiza o usuário no banco
+                repository.updateUser(updatedUser)
                 onResult(true)
             } else {
-                onResult(false) // Nome de usuário não encontrado
+                onResult(false)
             }
         }
     }

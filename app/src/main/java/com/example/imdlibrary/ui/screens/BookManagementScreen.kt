@@ -83,14 +83,14 @@ fun BookManagementScreen(navController: NavController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp)) // Espaçamento adicional entre os botões e a imagem
+            Spacer(modifier = Modifier.height(32.dp))
 
             Image(
-                painter = painterResource(id = R.drawable.management),
+                painter = painterResource(id = R.drawable.loginpreview),
                 contentDescription = "Imagem decorativa",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(225.dp) // Aumenta a altura da imagem
+                    .height(225.dp)
             )
         }
     }

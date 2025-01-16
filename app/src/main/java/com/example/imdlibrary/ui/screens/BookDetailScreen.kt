@@ -57,8 +57,8 @@ fun BookDetailScreen(viewModel: BookViewModel, isbn: String, navController: NavC
                     .fillMaxWidth()
                     .height(300.dp)
                     .padding(bottom = 24.dp),
-                error = painterResource(id = R.drawable.placeholder_image), // Corrigido
-                placeholder = painterResource(id = R.drawable.placeholder_image) // Corrigido
+                error = painterResource(id = R.drawable.placeholder_image),
+                placeholder = painterResource(id = R.drawable.placeholder_image)
             )
 
             StyledTextRow(label = "Título", value = book.title)

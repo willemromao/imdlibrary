@@ -24,11 +24,9 @@ class MainActivity : ComponentActivity() {
             BookDatabase::class.java, "book_database"
         ).fallbackToDestructiveMigration().build()
 
-        // Inicialização dos repositórios
         val bookRepository = BookRepository(db.bookDao())
         val userRepository = UserRepository(db.userDao())
 
-        // Inicialização dos ViewModels
         val bookViewModel = ViewModelProvider(
             this, BookViewModelFactory(bookRepository)
         )[BookViewModel::class.java]
@@ -37,7 +35,6 @@ class MainActivity : ComponentActivity() {
             this, UserViewModelFactory(userRepository)
         )[UserViewModel::class.java]
 
-        // Carregar os livros no início do app
         bookViewModel.loadBooks()
 
         setContent {

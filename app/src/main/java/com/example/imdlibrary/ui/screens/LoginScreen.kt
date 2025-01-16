@@ -1,22 +1,23 @@
 package com.example.imdlibrary.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.example.imdlibrary.viewmodel.UserViewModel
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.imdlibrary.R
+import com.example.imdlibrary.viewmodel.UserViewModel
 
 @Composable
 fun LoginScreen(viewModel: UserViewModel, navController: NavController) {
@@ -32,6 +33,14 @@ fun LoginScreen(viewModel: UserViewModel, navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.loginpreview),
+            contentDescription = "Imagem de Login",
+            modifier = Modifier
+                .size(200.dp)
+                .padding(bottom = 16.dp)
+        )
+
         TextField(
             value = username,
             onValueChange = { username = it },
@@ -74,6 +83,7 @@ fun LoginScreen(viewModel: UserViewModel, navController: NavController) {
         }
 
         if (errorMessage.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(8.dp))
             Text(errorMessage, color = MaterialTheme.colorScheme.error)
         }
     }

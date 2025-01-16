@@ -8,6 +8,6 @@ class BookRepository(private val bookDao: BookDao) {
     suspend fun getAllBooks() = bookDao.getAllBooks()
     suspend fun getBookByIsbn(isbn: String) = bookDao.getBookByIsbn(isbn)
     suspend fun deleteBook(book: Book) = bookDao.deleteBook(book)
-    suspend fun updateBook(book: Book) = bookDao.insertBook(book) // Room substitui dados com a mesma chave primária
+    suspend fun updateBook(book: Book) = bookDao.insertBook(book)
 }
 

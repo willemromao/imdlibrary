@@ -78,7 +78,7 @@ fun ForgotPasswordScreen(viewModel: UserViewModel, navController: NavController)
                         if (success) {
                             successMessage = "Senha redefinida com sucesso!"
                             errorMessage = null
-                            navController.navigate("login") // Navega para a tela de login
+                            navController.navigate("login")
                         } else {
                             errorMessage = "Usuário não encontrado!"
                             successMessage = null
