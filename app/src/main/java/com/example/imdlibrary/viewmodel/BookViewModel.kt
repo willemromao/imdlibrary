@@ -27,10 +27,19 @@ class BookViewModel(private val repository: BookRepository) : ViewModel() {
         loadBooks()
     }
 
-    suspend fun deleteBook(book: Book) {
-        repository.deleteBook(book)
+    suspend fun deleteBookByIsbn(isbn: String) {
+        val book = repository.getBookByIsbn(isbn)
+        if (book != null) {
+            repository.deleteBook(book)
+            loadBooks()
+        }
+    }
+
+    suspend fun updateBook(book: Book) {
+        repository.updateBook(book)
         loadBooks()
     }
 }
+
 
 

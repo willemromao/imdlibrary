@@ -18,10 +18,17 @@ fun BookManagementScreen(navController: NavController) {
         Text("Gerenciamento de Livros", style = MaterialTheme.typography.titleLarge)
 
         Button(onClick = { navController.navigate("book_create") }) {
-            Text("Cadastrar Livro")
+            Text("Cadastrar")
         }
         Button(onClick = { navController.navigate("book_list") }) {
-            Text("Listar Livros")
+            Text("Listar")
+        }
+        Button(onClick = { navController.navigate("book_edit") }) {
+            Text("Alterar")
+        }
+        Button(onClick = { navController.navigate("book_delete") }) {
+            Text("Excluir")
         }
     }
 }
+
