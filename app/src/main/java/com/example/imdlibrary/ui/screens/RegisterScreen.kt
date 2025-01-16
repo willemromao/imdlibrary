@@ -18,7 +18,9 @@ import com.example.imdlibrary.viewmodel.UserViewModel
 fun RegisterScreen(viewModel: UserViewModel, navController: NavController) {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var passwordVisible by remember { mutableStateOf(false) } // Controle de visibilidade da senha
+    var confirmPassword by remember { mutableStateOf("") }
+    var passwordVisible by remember { mutableStateOf(false) }
+    var confirmPasswordVisible by remember { mutableStateOf(false) }
     var successMessage by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
 
@@ -51,18 +53,40 @@ fun RegisterScreen(viewModel: UserViewModel, navController: NavController) {
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = {
-            viewModel.register(username, password) { success ->
-                if (success) {
-                    successMessage = "Conta criada com sucesso!"
-                    navController.popBackStack()
-                } else {
-                    errorMessage = "Usuário já existe"
+        TextField(
+            value = confirmPassword,
+            onValueChange = { confirmPassword = it },
+            label = { Text("Confirmar Senha") },
+            visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+            trailingIcon = {
+                val image = if (confirmPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
+                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
+                    Icon(imageVector = image, contentDescription = "Alternar visibilidade do confirmar senha")
                 }
+            },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {
+            if (password == confirmPassword) {
+                viewModel.register(username, password) { success ->
+                    if (success) {
+                        successMessage = "Conta criada com sucesso!"
+                        navController.popBackStack()
+                    } else {
+                        errorMessage = "Usuário já existe"
+                    }
+                }
+            } else {
+                errorMessage = "As senhas não coincidem!"
+                successMessage = ""
             }
         }) {
             Text("Criar conta")
         }
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         if (successMessage.isNotEmpty()) {
             Text(successMessage, color = MaterialTheme.colorScheme.primary)
