@@ -1,20 +1,13 @@
 package com.example.imdlibrary.ui.screens
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import android.widget.Toast
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
@@ -22,6 +15,7 @@ import com.example.imdlibrary.data.model.Book
 import com.example.imdlibrary.viewmodel.BookViewModel
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BookCreateScreen(viewModel: BookViewModel, navController: NavController) {
     var title by remember { mutableStateOf("") }
@@ -32,42 +26,116 @@ fun BookCreateScreen(viewModel: BookViewModel, navController: NavController) {
     var imageUrl by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)) {
-        Text("Cadastrar Livro", style = MaterialTheme.typography.titleLarge)
+    val context = LocalContext.current
 
-        TextField(value = title, onValueChange = { title = it }, label = { Text("Título") })
-        TextField(value = author, onValueChange = { author = it }, label = { Text("Autor") })
-        TextField(value = publisher, onValueChange = { publisher = it }, label = { Text("Editora") })
-        TextField(value = year, onValueChange = { year = it }, label = { Text("Ano") })
-        TextField(value = isbn, onValueChange = { isbn = it }, label = { Text("ISBN") })
-        TextField(value = imageUrl, onValueChange = { imageUrl = it }, label = { Text("URL da capa") })
-        TextField(value = description, onValueChange = { description = it }, label = { Text("Descrição") })
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = {
-            viewModel.viewModelScope.launch {
-                try {
-                    val newBook = Book(
-                        isbn = isbn,
-                        title = title,
-                        author = author,
-                        publisher = publisher,
-                        year = year.toIntOrNull() ?: 0,
-                        description = description,
-                        imageUrl = imageUrl
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "Cadastrar Livro",
+                        color = MaterialTheme.colorScheme.onPrimary,
+                        style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+                        modifier = Modifier.fillMaxWidth(),
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
-                    viewModel.addBook(newBook)
-                    navController.popBackStack()
-                } catch (e: Exception) {
-                    println("Erro ao salvar livro: ${e.message}")
-                }
+                },
+                colors = TopAppBarDefaults.mediumTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primary
+                )
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            TextField(
+                value = title,
+                onValueChange = { title = it },
+                label = { Text("Título") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = author,
+                onValueChange = { author = it },
+                label = { Text("Autor") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = publisher,
+                onValueChange = { publisher = it },
+                label = { Text("Editora") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = year,
+                onValueChange = { year = it },
+                label = { Text("Ano") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = isbn,
+                onValueChange = { isbn = it },
+                label = { Text("ISBN") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = imageUrl,
+                onValueChange = { imageUrl = it },
+                label = { Text("URL da capa") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = description,
+                onValueChange = { description = it },
+                label = { Text("Descrição") },
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = {
+                    viewModel.viewModelScope.launch {
+                        try {
+                            val newBook = Book(
+                                isbn = isbn,
+                                title = title,
+                                author = author,
+                                publisher = publisher,
+                                year = year.toIntOrNull() ?: 0,
+                                description = description,
+                                imageUrl = imageUrl
+                            )
+                            viewModel.addBook(newBook)
+
+                            Toast.makeText(context, "Livro cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
+                            navController.popBackStack()
+                        } catch (e: Exception) {
+                            Toast.makeText(context, "Erro ao salvar livro: ${e.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                },
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            ) {
+                Text("Cadastrar")
             }
-        }) {
-            Text("Cadastrar")
         }
     }
 }
-

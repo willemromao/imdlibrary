@@ -21,7 +21,7 @@ fun BookManagementScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        text = "GERENCIAMENTO DE LIVROS",
+                        text = "IMD Library",
                         color = MaterialTheme.colorScheme.onPrimary,
                         style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
                         textAlign = TextAlign.Center,
