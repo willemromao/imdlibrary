@@ -50,7 +50,7 @@ fun ForgotPasswordScreen(viewModel: UserViewModel, navController: NavController)
                 }
             }
         }) {
-            Text("Redefinir Senha")
+            Text("Redefinir senha")
         }
 
         successMessage?.let {

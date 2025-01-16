@@ -40,7 +40,7 @@ fun BookEditScreen(viewModel: BookViewModel, navController: NavController) {
                 }
             }
         }) {
-            Text("Buscar Livro")
+            Text("Buscar")
         }
 
         if (title.isNotEmpty()) {
@@ -66,7 +66,7 @@ fun BookEditScreen(viewModel: BookViewModel, navController: NavController) {
                     navController.popBackStack() // Voltar para a tela anterior
                 }
             }) {
-                Text("Salvar Alterações")
+                Text("Alterar")
             }
         }
     }

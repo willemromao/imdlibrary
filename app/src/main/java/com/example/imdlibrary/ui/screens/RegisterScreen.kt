@@ -46,7 +46,7 @@ fun RegisterScreen(viewModel: UserViewModel, navController: NavController) {
                 }
             }
         }) {
-            Text("Registrar")
+            Text("Criar conta")
         }
 
         if (successMessage.isNotEmpty()) {

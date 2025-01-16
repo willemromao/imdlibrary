@@ -49,7 +49,7 @@ fun LoginScreen(viewModel: UserViewModel, navController: NavController) {
         }
         Spacer(modifier = Modifier.height(8.dp))
         TextButton(onClick = { navController.navigate("register") }) {
-            Text("Criar Conta")
+            Text("Criar conta")
         }
         TextButton(onClick = { navController.navigate("forgot_password") }) {
             Text("Esqueci minha senha")

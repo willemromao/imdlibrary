@@ -42,7 +42,7 @@ fun BookCreateScreen(viewModel: BookViewModel, navController: NavController) {
         TextField(value = publisher, onValueChange = { publisher = it }, label = { Text("Editora") })
         TextField(value = year, onValueChange = { year = it }, label = { Text("Ano") })
         TextField(value = isbn, onValueChange = { isbn = it }, label = { Text("ISBN") })
-        TextField(value = imageUrl, onValueChange = { imageUrl = it }, label = { Text("URL da Capa") })
+        TextField(value = imageUrl, onValueChange = { imageUrl = it }, label = { Text("URL da capa") })
         TextField(value = description, onValueChange = { description = it }, label = { Text("Descrição") })
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -66,7 +66,7 @@ fun BookCreateScreen(viewModel: BookViewModel, navController: NavController) {
                 }
             }
         }) {
-            Text("Salvar Livro")
+            Text("Cadastrar")
         }
     }
 }
