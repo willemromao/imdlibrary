@@ -6,6 +6,9 @@ Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livr
 ## 🖼️ Prints das Telas
 ![Telas](Telas.png)
 
+## 🎥 Demonstração
+[![Demonstração do Projeto](Demonstracao.png)](https://www.youtube.com/watch?v=1N90JNdKwsY&t=1s)
+
 ## ✨ Funcionalidades Principais
 1. **📖 Cadastro de livros:**
    - Inclui título, autor, editora, ano de publicação, descrição, ISBN e URL da capa do livro.
