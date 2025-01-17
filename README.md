@@ -3,12 +3,6 @@
 ## 🎯 Objetivo
 Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livros** utilizando as melhores práticas de desenvolvimento Android, como arquitetura MVVM e Jetpack Compose. O sistema permite o cadastro, edição, exclusão e visualização de livros, além do gerenciamento de usuários com funcionalidades de login e registro
 
-## 🖼️ Prints das Telas
-![Telas](Telas.png)
-
-## 🎥 Demonstração
-[![Demonstração do Projeto](Demonstracao.png)](https://www.youtube.com/watch?v=1N90JNdKwsY&t=1s)
-
 ## ✨ Funcionalidades Principais
 1. **📖 Cadastro de livros:**
    - Inclui título, autor, editora, ano de publicação, descrição, ISBN e URL da capa do livro.
@@ -21,6 +15,12 @@ Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livr
    - Cadastro de novos usuários e login com validação.
 5. **🎨 Interface moderna:**
    - Utiliza **Material Design 3** para uma experiência de usuário intuitiva e responsiva.
+
+## 🖼️ Prints das Telas
+![Telas](Telas.png)
+
+## 🎥 Demonstração
+[![Demonstração do Projeto](Demonstracao.png)](https://www.youtube.com/watch?v=1N90JNdKwsY&t=1s)
 
 ## 🎓 Público-alvo
 Este sistema foi desenvolvido como parte de uma disciplina acadêmica e tem como público-alvo professores.
