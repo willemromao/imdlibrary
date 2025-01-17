@@ -17,10 +17,10 @@ Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livr
    - Utiliza **Material Design 3** para uma experiência de usuário intuitiva e responsiva.
 
 ## 🖼️ Prints das Telas
-![Telas](Telas.png)
+![Telas](screens.png)
 
 ## 🎥 Demonstração
-[![Demonstração do Projeto](Demonstracao.png)](https://www.youtube.com/watch?v=1N90JNdKwsY&t=1s)
+[![Demonstração do Projeto](demonstration.png)](https://www.youtube.com/watch?v=1N90JNdKwsY&t=1s)
 
 ## 🎓 Público-alvo
 Este sistema foi desenvolvido como parte de uma disciplina acadêmica e tem como público-alvo professores.
