@@ -77,17 +77,7 @@ O projeto segue a arquitetura **MVVM** (Model-View-ViewModel), que organiza o c�
 3. **🎨 View:** Contém as telas do aplicativo, implementadas com Jetpack Compose. Utiliza os dados fornecidos pelo ViewModel para renderizar a interface.
 
 ## 🖼️ Prints das Telas
-### 🟡 Tela de Login
-![Tela de Login](login_screen.png)
-
-### 🟡 Tela de Cadastro de Livros
-![Tela de Cadastro de Livros](book_create_screen.png)
-
-### 🟡 Tela de Lista de Livros
-![Tela de Lista de Livros](book_list_screen.png)
-
-### 🟡 Tela de Detalhes do Livro
-![Tela de Detalhes do Livro](book_detail_screen.png)
+![Telas](Telas.png)
 
 ## 🚀 Como Rodar o Projeto
 1. Clone este repositório.
