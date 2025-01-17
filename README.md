@@ -1,7 +1,10 @@
 # 📚 Sistema de Gerenciamento de Livros
 
 ## 🎯 Objetivo
-Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livros** utilizando as melhores práticas de desenvolvimento Android, como arquitetura MVVM e Jetpack Compose. O sistema permite o cadastro, edição, exclusão e visualização de livros, além do gerenciamento de usuários com funcionalidades de login e registro.
+Este projeto tem como objetivo desenvolver um **sistema de gerenciamento de livros** utilizando as melhores práticas de desenvolvimento Android, como arquitetura MVVM e Jetpack Compose. O sistema permite o cadastro, edição, exclusão e visualização de livros, além do gerenciamento de usuários com funcionalidades de login e registro
+
+## 🖼️ Prints das Telas
+![Telas](Telas.png)
 
 ## ✨ Funcionalidades Principais
 1. **📖 Cadastro de livros:**
@@ -75,9 +78,6 @@ O projeto segue a arquitetura **MVVM** (Model-View-ViewModel), que organiza o c�
 1. **📂 Model:** Responsável pelos dados do aplicativo, persistência e regras de negócio. Contém os DAOs e os repositórios para livros e usuários.
 2. **⚙️ ViewModel:** Atua como um intermediário entre a Model e a View. Gerencia o estado da interface e as interações do usuário.
 3. **🎨 View:** Contém as telas do aplicativo, implementadas com Jetpack Compose. Utiliza os dados fornecidos pelo ViewModel para renderizar a interface.
-
-## 🖼️ Prints das Telas
-![Telas](Telas.png)
 
 ## 🚀 Como Rodar o Projeto
 1. Clone este repositório.
