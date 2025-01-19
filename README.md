@@ -29,7 +29,7 @@ Este sistema foi desenvolvido como parte de uma disciplina acadêmica e tem como
 - **Kotlin:** Linguagem principal para o desenvolvimento.
 - **Jetpack Compose:** Para a criação da interface de usuário.
 - **Room Database:** Para persistência local dos dados.
-- **Glide:** Para carregamento eficiente das imagens através de URLs.
+- **Glide:** Para carregamento das imagens através de URLs.
 
 ## 📋 Requisitos
 - **compileSdk e targetSdk:** 34
@@ -89,5 +89,3 @@ O projeto segue a arquitetura **MVVM** (Model-View-ViewModel), que organiza o c�
 4. Clique em **Run** para compilar e executar o aplicativo.
 
 ---
-
-Este projeto foi desenvolvido como parte de um trabalho acadêmico, buscando aplicar conceitos básicos de desenvolvimento Android.
